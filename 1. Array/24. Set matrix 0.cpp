@@ -5,40 +5,41 @@
 // 4. Finally, based on the values in firstRowZero and firstColZero, set the first row and first column to zero if needed.
 
 int m=matrix.size();
-        int n=matrix[0].size();
+int n=matrix[0].size();
         
         //col-->[0][...]  row-->[...][0]
-        bool col0=false;
+bool col0=false;
 
-        for(int i=0; i<m; i++){
-            for(int j=0; j<n; j++){
-                if(matrix[i][j]==0){
-                    matrix[i][0]=0;
+for(int i=0; i<m; i++){
+        for(int j=0; j<n; j++){
+                if(matrix[i][j]==0){ 
+                    matrix[i][0]=0; // mark the row
                     if(j!=0){
-                        matrix[0][j]=0;
+                        matrix[0][j]=0; // mark the column
                     } 
                     else{
-                        col0=true;
+                        col0=true; // special case: first column
                     } 
                 }
-            }
         }
-        for(int i=1; i<m; i++){
-            for(int j=1; j<n; j++){
+}
+//update inner cells except first row and first col
+for(int i=1; i<m; i++){
+        for(int j=1; j<n; j++){
                 if(matrix[i][j]!=0){
                     if(matrix[0][j]==0 || matrix[i][0]==0){
                         matrix[i][j]=0;
                     }
                 }
-            }
         }
-        if(matrix[0][0]==0){
-            for (int j=0; j<n; j++) {
+}
+if(matrix[0][0]==0){
+        for (int j=0; j<n; j++) {
                 matrix[0][j]=0;
-            }
         }
-        if(col0){
-            for(int i=0; i<m; i++){
+}
+if(col0){
+        for(int i=0; i<m; i++){
                 matrix[i][0]=0;
-            }
         }
+}
