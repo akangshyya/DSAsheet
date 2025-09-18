@@ -1,28 +1,32 @@
+// Input: nums = [100,4,200,1,3,2]
+// Output: 4
+// Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+
 //approach 1-
 sort(nums.begin(), nums.end()); // O(n log n)
 int longestStreak = 1;
 int currentStreak = 1;
 
-for (int i = 1; i < nums.size(); ++i) {
+for (int i = 1; i < nums.size(); ++i){
   if (nums[i] == nums[i - 1]) {
     continue;
   } 
-  if (nums[i] == nums[i - 1] + 1) {
+  if (nums[i] == nums[i - 1] + 1) 
     currentStreak++;
-  } else {
+  else
     currentStreak = 1;
-  }
+  
   longestStreak = max(longestStreak, currentStreak);
 }
 return longestStreak;
 
-//approach 2-
+//approach 2- set
 set<int> numSet(nums.begin(), nums.end()); // O(n log n)
 int longestStreak = 0;
 
 for (int num : numSet) {
   if (numSet.find(num - 1) == numSet.end()) { // if num-1 not there then it might be the start of a new sequence
-            // Start of a sequence
+    // Start of a sequence
     int currentNum = num;
     int currentStreak = 1;
 
@@ -32,7 +36,7 @@ for (int num : numSet) {
     }
 
     longestStreak = max(longestStreak, currentStreak);
-    }
+  }
 }
 return longestStreak;
 
@@ -45,15 +49,15 @@ for (int i = 0; i < nums.size(); i++){
 int ans = 0;
 for (int i = 0; i < nums.size(); i++){
   int start = nums[i];
-        // check whehter this can be the start of the subsequence
-    if (mp.find(nums[i] - 1) == mp.end()){
-      int temp = 1;
-      int nxt = nums[i];
-      while (mp.find(nxt + 1) != mp.end()){
-        temp++;
-        nxt++;
-      }
-      ans = max(ans, temp);
+  // check whehter this can be the start of the subsequence
+  if (mp.find(nums[i] - 1) == mp.end()){
+    int temp = 1;
+    int nxt = nums[i];
+    while (mp.find(nxt + 1) != mp.end()){
+      temp++;
+      nxt++;
     }
+    ans = max(ans, temp);
+  }
 }
 return ans;
