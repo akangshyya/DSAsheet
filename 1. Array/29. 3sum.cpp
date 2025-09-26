@@ -12,7 +12,9 @@ To find all triplets that sum up to zero, we can follow these steps:
 5. Skip duplicate elements to avoid duplicate triplets.
 6. Return the resulting triplets.
 */
+//Approach 1- 3 for loops if 3 elements ==0, add ans to the output
 
+//Approach 2-
 sort(nums.begin(), nums.end());
 int n = nums.size();
 for (int i = 0; i < n - 2; i++) {
