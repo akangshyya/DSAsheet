@@ -15,6 +15,7 @@ for (int i = 0; i < nums.size(); i++){
 
     if (mp.find(pref_sum - k) != mp.end()){
         ans += mp[pref_sum - k];
+        //adding count of nmber present
     }
 
     mp[pref_sum]++;
