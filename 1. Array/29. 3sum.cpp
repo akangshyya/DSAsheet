@@ -27,7 +27,7 @@ for (int i = 0; i < n - 2; i++) {
     int target = -nums[i];
 
     while (left < right) {
-        int sum = nums[left] + nums[right];
+        int sum = nums[left] + nums[right]; // sum=-nums[i]
         if (sum == target) {
           result.push_back({nums[i], nums[left], nums[right]});
           // Skip duplicates for the second element
