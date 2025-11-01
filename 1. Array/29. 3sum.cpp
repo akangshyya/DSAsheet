@@ -29,10 +29,10 @@ for (int i = 0; i < n - 2; i++) {
     while (left < right) {
         int sum = nums[left] + nums[right]; // sum=-nums[i]
         if (sum == target) {
-          result.push_back({nums[i], nums[left], nums[right]});
-          // Skip duplicates for the second element
-          while (left < right && nums[left] == nums[left + 1])
-            left++;
+            result.push_back({nums[i], nums[left], nums[right]});
+            // Skip duplicates for the second element
+            while (left < right && nums[left] == nums[left + 1])
+                left++;
             // Skip duplicates for the third element
             while (left < right && nums[right] == nums[right - 1])
                 right--;
