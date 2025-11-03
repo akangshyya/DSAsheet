@@ -40,5 +40,37 @@ long long y = xPlusY - x;
 return {(int)y, (int)x};
 
 //4th : XOR
+//conept of buckets
+//1. xor array(x) and xor numbers(y) gives x xor y.
+//2. one bit will be set, get that bit and make 2 buckets.
+//3. xor arrays and num for zeroes and ones in those buckets. 
+//4. zeroes and ones will be left with x and y.
 
+int n = arr.size();
+int xr = 0;
+
+// Step 1: XOR all array elements and numbers from 1 to n
+for (int i = 0; i < n; i++) {
+    xr ^= arr[i];
+    xr ^= (i + 1);
+}
+
+// Step 2: Get rightmost set bit
+int bitNo = xr & ~(xr - 1);
+int zero = 0, one = 0;
+// Step 3: Divide elements into two groups
+for (int i = 0; i < n; i++) {
+    if (arr[i] & bitNo)
+        one ^= arr[i];
+    else
+        zero ^= arr[i];
+
+    if ((i + 1) & bitNo)
+        one ^= (i + 1);
+    else
+        zero ^= (i + 1);
+}
+
+// Step 4: Return
+return {zero, one};
   
