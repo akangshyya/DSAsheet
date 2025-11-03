@@ -7,4 +7,4 @@ Output: 3
 Explanation: The sequence 2, 4, 1, 3, 5 has three inversions (2, 1), (4, 1), (4, 3).
 */
 //1st approach : 2 loops. next loop from i+1.
-//2nd approach: 
+//2nd approach: Merge Sort Algorithm.
