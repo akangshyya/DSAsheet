@@ -1,3 +1,4 @@
+//also called floor function
 // x = 5
 // arr[] = {1,2,8,10,11,12,19}
 // Output: 1
